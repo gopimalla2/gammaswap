@@ -9,6 +9,7 @@ import USDC from '../assets/coins/USDC';
 import { useEffect, useState } from 'react';
 import { Product } from './types';
 import Liquidity from './components/liquidity';
+import Invest from './components/invest';
 // import GammaSwapSelect from '../UIKit/Select';
 
 const defaultData = [
@@ -17,10 +18,12 @@ const defaultData = [
     product: {
       symbol: 'ETH',
       icon: <ETH />,
+      reserve: '6598',
     },
     settling: {
       symbol: 'USDC',
       icon: <USDC />,
+      reserve: '11,581,900.00',
     },
     liquidity: {
       '24h': {
@@ -40,6 +43,22 @@ const defaultData = [
         value: 5.3,
       },
     },
+    volume: {
+      '24h': {
+        value: '15,00M',
+      },
+      '7d': {
+        value: '15,000M',
+      },
+    },
+    fees: {
+      '24h': {
+        value: '50,000',
+      },
+      '7d': {
+        value: '90,000',
+      },
+    },
     address: '0xB4B0570038d3C9c4Bd2590637c48Cb1964D887a5',
   },
 ];
@@ -48,7 +67,7 @@ const PoolGrid = () => {
   const [data, setData] = useState<Product[]>([]);
   // @ts-ignore
   const [selectedItem, setSelectedItem] = useState<Product>({});
-  const [duration, setDuration] = useState('7d');
+  const [duration, setDuration] = useState('24h');
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -88,6 +107,7 @@ const PoolGrid = () => {
       <div className={styles.body}>
         <InfoHeader item={selectedItem} />
         <Liquidity item={selectedItem} duration={duration} />
+        <Invest item={selectedItem} duration={duration} />
       </div>
     </div>
   );

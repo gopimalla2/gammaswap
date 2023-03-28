@@ -5,10 +5,12 @@ export interface Product {
   product?: {
     symbol: string;
     icon: ReactNode;
+    reserve: string;
   };
   settling?: {
     symbol: string;
     icon: ReactNode;
+    reserve: string;
   };
   liquidity: {};
   address?: string;
