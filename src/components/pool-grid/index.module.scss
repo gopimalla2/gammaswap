@@ -1,0 +1,53 @@
+.dFlex{
+    display: flex;
+}
+
+.flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    .header{
+        width: 460px;
+        justify-content: space-between;
+        h2{
+            margin: 0;
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 33px;
+        }
+        .right{
+            gap: 8px;
+            .prange{
+                color: #969696;
+                font-weight: 500;
+                font-size: 13px;
+                line-height: 16px;
+                letter-spacing: 0.02em;
+            }
+            .arbitrum{
+                align-items: center;
+                padding: 7px 12px;
+                gap: 8px;
+                background: #FFFFFF;
+                border: 1px solid #E8E8E8;
+                box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.06);
+                border-radius: 12px;
+            }
+        }
+    }
+    .body{
+        background: #FFFFFF;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.06);
+        border-radius: 16px;
+        padding: 32px;
+        gap: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+}

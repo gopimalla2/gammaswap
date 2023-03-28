@@ -2,7 +2,7 @@ import { createTheme } from '@mui/material/styles';
 
 export const lightTheme = createTheme({
   palette: {
-      mode: 'light',
+    mode: 'light',
     primary: {
       main: '#4caf50',
     },
@@ -14,7 +14,7 @@ export const lightTheme = createTheme({
 
 export const darkTheme = createTheme({
   palette: {
-      mode: 'dark',
+    mode: 'dark',
     primary: {
       main: '#4caf50',
     },

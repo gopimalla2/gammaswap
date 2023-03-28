@@ -1,0 +1,57 @@
+.infoHeader{
+    display: flex;
+    justify-content: space-between;
+    .left{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .icons{
+            display: flex;
+            :last-child{
+                margin-left: -8px;
+            }
+            svg{
+                height: 40px;
+                width: 40px;
+            }
+        }
+        .info{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            .title{
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            .additional{
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                color: #969696;
+                font-size: 13px;
+                line-height: 16px;
+                letter-spacing: 0.02em;
+                .eclipse{
+                    width: 4px;
+                    height: 4px;
+                    background: #E8E8E8;
+                }
+                svg{
+                    margin-left: 4px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .right{
+        svg{
+            &:hover{
+                path{
+                    cursor: pointer;
+                    fill: #3E73C4;
+                }
+            }
+        }
+    }
+}

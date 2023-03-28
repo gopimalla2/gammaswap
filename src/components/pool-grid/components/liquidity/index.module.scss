@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    .item{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        &:first-child{
+            margin-right: 72px;
+        }
+        .title{
+            color: #969696;
+            font-size: 13px;
+            line-height: 16px;
+        }
+        .value{
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 38px;
+        }
+        .change{
+            display: flex;
+            gap: 4px;
+            font-size: 13px;
+            .positive{
+                color: #00BA34;
+                font-weight: 700;
+            }
+            .negative{
+                color: red;
+                font-weight: 700;
+            }
+            .duration{
+                color: #969696;
+                font-weight: 500;
+            }
+        }
+    }
+}
