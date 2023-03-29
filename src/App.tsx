@@ -7,6 +7,7 @@ import { lightTheme, darkTheme } from './theme';
 import PoolGrid from './components/pool-grid';
 
 const App = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const currentTheme = isDarkMode ? darkTheme : lightTheme;

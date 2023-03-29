@@ -12,6 +12,7 @@ import GammaSwapSelect from '../UIKit/Select';
 import { defaultData, filterRangeList } from './helper';
 
 const PoolGrid = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [data, setData] = useState<Product[]>([]);
   // @ts-ignore
   const [selectedItem, setSelectedItem] = useState<Product>({});
