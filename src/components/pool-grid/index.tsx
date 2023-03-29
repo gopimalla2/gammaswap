@@ -4,70 +4,22 @@ import Arbitrum from '../assets/icons/Arbitrum';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import InfoHeader from './components/header';
-import ETH from '../assets/coins/ETH';
-import USDC from '../assets/coins/USDC';
 import { useEffect, useState } from 'react';
 import { Product } from './types';
 import Liquidity from './components/liquidity';
 import Invest from './components/invest';
-// import GammaSwapSelect from '../UIKit/Select';
-
-const defaultData = [
-  {
-    id: 1,
-    product: {
-      symbol: 'ETH',
-      icon: <ETH />,
-      reserve: '6598',
-    },
-    settling: {
-      symbol: 'USDC',
-      icon: <USDC />,
-      reserve: '11,581,900.00',
-    },
-    liquidity: {
-      '24h': {
-        value: 23.0,
-        change: 2.38,
-      },
-      '7d': {
-        value: 123.0,
-        change: -12.38,
-      },
-    },
-    apr: {
-      '24h': {
-        value: 2.34,
-      },
-      '7d': {
-        value: 5.3,
-      },
-    },
-    volume: {
-      '24h': {
-        value: '15,00M',
-      },
-      '7d': {
-        value: '15,000M',
-      },
-    },
-    fees: {
-      '24h': {
-        value: '50,000',
-      },
-      '7d': {
-        value: '90,000',
-      },
-    },
-    address: '0xB4B0570038d3C9c4Bd2590637c48Cb1964D887a5',
-  },
-];
+import GammaSwapSelect from '../UIKit/Select';
+import { defaultData, filterRangeList } from './helper';
 
 const PoolGrid = () => {
   const [data, setData] = useState<Product[]>([]);
   // @ts-ignore
   const [selectedItem, setSelectedItem] = useState<Product>({});
   const [duration, setDuration] = useState('24h');
+
+  const filterCallBack = (item: { id: string, label: string}) => {
+    setDuration(item.id);
+  }
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -96,7 +48,9 @@ const PoolGrid = () => {
                 </IconButton>
               </Tooltip>
             </div>
-            <div>{/* <GammaSwapSelect/> */}</div>
+            <div>
+              <GammaSwapSelect title={duration} list={filterRangeList} callBack={filterCallBack}/>
+            </div>
           </div>
           <div className={`${styles.arbitrum} ${styles.flexCenter}`}>
             <Arbitrum />
