@@ -25,7 +25,7 @@ const PoolGrid = () => {
     const timeoutId = setTimeout(() => {
       setData(defaultData);
       setSelectedItem(defaultData[0]);
-    }, 2000);
+    }, 1000);
 
     return () => {
       clearTimeout(timeoutId);

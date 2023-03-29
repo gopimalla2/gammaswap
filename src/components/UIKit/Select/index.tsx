@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import styles from './index.module.scss';
-import { ChevronLeft } from '@material-ui/icons';
 import RoundTickFilled from '../../assets/icons/RoundTickFilled';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 type ListItem = {
   id: string;
@@ -40,7 +40,7 @@ export default function BasicPopover({ title, list, callBack }: Props) {
 
   return (
     <div className={styles.container}>
-      <Button aria-describedby={id} variant="contained" onClick={handleClick} endIcon={<ChevronLeft className={open ? styles.open : styles.close}/>}>
+      <Button aria-describedby={id} variant="contained" onClick={handleClick} endIcon={open ? <ExpandLess/> : <ExpandMore/>}>
         {title}
       </Button>
 

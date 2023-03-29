@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/material';
 import Box from '@mui/material/Box';
 
 import styles from './App.module.scss';
