@@ -45,11 +45,13 @@
         }
     }
     .right{
-        svg{
-            &:hover{
-                path{
-                    cursor: pointer;
-                    fill: #3E73C4;
+        .favContainer{
+            &:hover, &.filled{
+                svg{
+                    path{
+                        cursor: pointer;
+                        fill: #3E73C4;
+                    }
                 }
             }
         }

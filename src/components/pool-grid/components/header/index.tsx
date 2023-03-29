@@ -1,15 +1,47 @@
 import Skeleton from '@mui/material/Skeleton';
+import StarIcon from '@mui/icons-material/Star';
 
 import styles from './index.module.scss';
 import ArrowTopRightSquare from '../../../assets/icons/ArrowTopRightSquare';
 import Star from '../../../assets/icons/Star';
 import { Product } from '../../types';
+import { useEffect, useState } from 'react';
+import { getFavListFromLocalStorage } from '../../../../helpers';
 
 const InfoHeader = ({ item }: { item: Product }) => {
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isLoggedIn, setUserLoggedIn] = useState(false);
+  const [isFav, setIsFav] = useState(false);
+  
   const redirect = () => {
     window &&
       window?.open(`https://goerli.etherscan.io/address/${item.address}`, '_blank')?.focus();
   };
+
+  useEffect(() => {
+    const favList = getFavListFromLocalStorage();
+    if(favList.indexOf(item.id) !== -1){
+      setIsFav(true);
+    }
+  }, [item.id]);
+
+  const handleFav = () => {
+    if(!isLoggedIn){
+      let favList = getFavListFromLocalStorage();
+      if(favList.indexOf(item.id) !== -1){
+        favList.splice(favList.indexOf(item.id));
+        setIsFav(false);
+      } else {
+        favList.push(item.id);
+        setIsFav(true);
+      }
+      localStorage.setItem('fav_list', JSON.stringify(favList));
+    } else{
+      // Make an API call to set the item in the fav list
+    }
+  }
+
   return (
     <div className={styles.infoHeader}>
       <div className={styles.left}>
@@ -43,7 +75,11 @@ const InfoHeader = ({ item }: { item: Product }) => {
         </div>
       </div>
       <div className={styles.right}>
-        <Star />
+        <div onClick={handleFav} className={`${styles.favContainer} ${isFav ? styles.filled : ''}`}>
+          {
+            isFav ? <StarIcon /> : <Star/>
+          }
+        </div>
       </div>
     </div>
   );
