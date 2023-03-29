@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import styles from './index.module.scss';
 import { ChevronLeft } from '@material-ui/icons';
+import RoundTickFilled from '../../assets/icons/RoundTickFilled';
 
 type ListItem = {
   id: string;
@@ -86,7 +87,12 @@ export default function BasicPopover({ title, list, callBack }: Props) {
         <Typography sx={{ p: 2, backgroundColor: 'white', minWidth: '190px', border: '1px solid #E8E8E8', boxShadow: '0px 1px 1px rgba(0, 0, 0, 0.06)', borderRadius: '12px' }}>
           {
             list.map(item => (
-              <div style={{ cursor: 'pointer', padding: '8px'}} onClick={() => handleItemClick(item)}>{item.label}</div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', padding: '8px', fontWeight: '700', fontSize: '14px'}} onClick={() => handleItemClick(item)}>
+                {item.label}
+                {
+                  item.id === title && <RoundTickFilled/>
+                }
+              </div>
             ))
           }
         </Typography>
