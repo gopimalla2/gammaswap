@@ -27,9 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:styles": "stylelint 'src/**/*.{scss,sass}'",
-    "lint:all": "npm run lint && npm run lint:styles"
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "eslintConfig": {
     "extends": [
@@ -73,12 +71,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
-    "prettier": "^2.8.7",
-    "stylelint": "^15.3.0",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-sass-guidelines": "^10.0.0",
-    "stylelint-config-standard": "^31.0.0",
-    "stylelint-prettier": "^3.0.0",
-    "stylelint-scss": "^4.6.0"
+    "prettier": "^2.8.7"
   }
 }
