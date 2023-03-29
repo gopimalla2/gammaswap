@@ -36,12 +36,28 @@ const Invest = ({ item, duration }: { item: Product; duration: string }) => {
       </div>
       <div className={styles.stats}>
         <div className={styles.titles}>
-          <div className={styles.title}>{duration} Volume</div>
-          <div className={styles.title}>{duration} Fees</div>
+          <div className={styles.title}>
+            {volume?.value ? (
+              `${duration} Volume`
+            ) : (
+              <Skeleton variant="text" width={70} height={18} />
+            )}
+          </div>
+          <div className={styles.title}>
+            {fees?.value ? `${duration} Fees` : <Skeleton variant="text" width={70} height={18} />}
+          </div>
         </div>
         <div className={styles.values}>
-          <div className={styles.value}>${volume?.value}</div>
-          <div className={styles.value}>${fees?.value}</div>
+          <div className={styles.value}>
+            {volume?.value ? (
+              `$${volume?.value}`
+            ) : (
+              <Skeleton variant="text" width={70} height={18} />
+            )}
+          </div>
+          <div className={styles.value}>
+            {fees?.value ? `$${fees?.value}` : <Skeleton variant="text" width={70} height={18} />}
+          </div>
         </div>
       </div>
       <div className={styles.button}>
